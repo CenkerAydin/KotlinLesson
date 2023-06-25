@@ -12,12 +12,18 @@ git diff ->Dosyadaki değişiklikleri gösterir.
 KOTLIN
 
 fun main(){
-} ->Ana giriş noktası
+} -> JVM kullanan dillerin Ana giriş noktası
 ==
 fun main (args:Array<String>){
 
 }
 Tek fark 2. main fonksiyonunda argüman alır
+
+/**
+* ->Parametreli yorum satırı
+*/
+
+//TODO ->sonra bakmak için ufak hatırlatıcı
 
 Kotlin ve java kodları birbirine dönüştürülebilir.JVM sayesinde
 İki dilde kodu bytecode dönüştürerek derler ve bu şekilde iki tarafta birbirine değiştirilebilir.
@@ -32,7 +38,7 @@ Default olarak val yaz sonra değiştirmeye ihtiyacın olduğu değişkeni var y
 
 val age =21 (Explicitly given type is redundant here)
 val age:Int =21
-Eğer değişkeni tanımladıysan değişkenin türünü yazmana gerek yok kotlin onu otomatik olarak algılıyor.
+Eğer değişkeni tanımladıysan değişkenin türünü yazmana gerek yok kotlin Type inference yapar.
 
 Implicitly =Kapalı olarak
 Explicity=Açıkça
@@ -41,3 +47,21 @@ var eyes
     eyes ="Blue"
     hata alırsın çünkü ya değişkeni tanımlıcaksın ya da değişkenin türünü girceksin
     (This variable must either have a type annotation or be initialized)
+
+
+VARIABLE TYPES
+Numbers(Byte, Short, Int, Long, Double, Float)
+Characters
+Booleans
+Arrays
+String
+
+Primitive vs Reference Type
+Primitive type always has a value,it can never be null but reference type can be null
+if you create a primitive variable of type int and forget to initialize it then it's value would be 0.
+Reference type default has a null value.
+
+Primitive type stores values
+Reference type stores handle objects in heap space.
+
+
