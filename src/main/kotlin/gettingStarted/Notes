@@ -13,7 +13,7 @@ KOTLIN
 
 fun main(){
 } ->Ana giriş noktası
-
+==
 fun main (args:Array<String>){
 
 }
