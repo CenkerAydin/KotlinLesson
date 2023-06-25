@@ -1,4 +1,4 @@
-package gettingStarted
+package `1`.gettingStarted
 
 fun main(){
     val name= "Cenker"
@@ -12,11 +12,15 @@ fun main(){
     println(name)
     println(surName)
 
-    val  age:Int=21
+    val  age=21 //Değişken tanımlanmışsa değişken tipine gerek yok.Kotlin Type ınference yapar.
     print(age)
     val eyesColor= "Blue"
     print(eyesColor)
 
     val skinTone = "White"
     print(skinTone)
+
+    //Variable Types
+
+
 }
