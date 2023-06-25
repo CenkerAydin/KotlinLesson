@@ -1,4 +1,4 @@
-package `1`.gettingStarted
+package gettingStarted
 
 fun main(){
     val name= "Cenker"
