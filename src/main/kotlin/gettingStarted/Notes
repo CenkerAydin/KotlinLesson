@@ -1,0 +1,43 @@
+GIT
+cd ->change directory
+git init ->.git dosyasını oluşturur.Dosyada gitin çalışmasını sağlar.
+git status ->Dosyanın durumunu verir
+git add * ->Tüm dosyaları ekler
+git commit -m "created"-> Add ile eklediğin dosyaları gite kaydeder.
+git log ->Değişiklikleri ve kimin ne zaman yaptığını gösterir.
+git config --global user.name ->İsimi verir
+git config -- global email ->emaili verir
+git diff ->Dosyadaki değişiklikleri gösterir.
+
+KOTLIN
+
+fun main(){
+} ->Ana giriş noktası
+==
+fun main (args:Array<String>){
+
+}
+Tek fark 2. main fonksiyonunda argüman alır.
+
+Kotlin ve java kodları birbirine dönüştürülebilir.JVM sayesinde
+İki dilde kodu bytecode dönüştürerek derler ve bu şekilde iki tarafta birbirine değiştirilebilir.
+
+1.VARIABLES
+val name:String ="Cenker" ->(Immutable) cannot be reassigned
+var surName:String ="Aydın" ->(Mutable)
+
+akılda kalması açısından val =value, var=variables
+
+Default olarak val yaz sonra değiştirmeye ihtiyacın olduğu değişkeni var yapıp değiştirebilirsin.
+
+val age =21 (Explicitly given type is redundant here)
+val age:Int =21
+Eğer değişkeni tanımladıysan değişkenin türünü yazmana gerek yok kotlin onu otomatik olarak algılıyor.
+
+Implicitly =Kapalı olarak
+Explicity=Açıkça
+
+var eyes
+    eyes ="Blue"
+    hata alırsın çünkü ya değişkeni tanımlıcaksın ya da değişkenin türünü girceksin
+    (This variable must either have a type annotation or be initialized)
