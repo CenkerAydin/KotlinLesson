@@ -17,7 +17,7 @@ fun main(){
 fun main (args:Array<String>){
 
 }
-Tek fark 2. main fonksiyonunda argüman alır.
+Tek fark 2. main fonksiyonunda argüman alır
 
 Kotlin ve java kodları birbirine dönüştürülebilir.JVM sayesinde
 İki dilde kodu bytecode dönüştürerek derler ve bu şekilde iki tarafta birbirine değiştirilebilir.
