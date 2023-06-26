@@ -41,3 +41,45 @@ Buyuk degeri daha kucuk bir degere dönüştüremezsin hatalı sayı verir
 String to Number donusumler için Java'dan aşina olduğumuz tip donusumlerı kullanılabilir
 
 parseByte(),parseShort(),parseInt(), parseLong(), parseDouble(),parseFloat(),
+
+CHARACTERS
+
+Tek tırnakların arasına, harf,sayi, escape char ya da unicode yazarak kullanılır.
+Çift tırnak ->String ,char değil
+
+**Number deger alan bir char değişkei int'e çevrilirken,gerçek sayısal degerını almaz.
+ASCII tablosundaki sayının değerini alır.
+Tek karakter kabul ediyor.
+Unicode karakter tanımlamak için kullanabilirsin.
+
+Escape karakterler
+'\t' -> Tab Bırakmak için
+'\n' ->Alt satır için
+'\b' ->backspace için
+'\r' ->Satır başı
+
+BOOLEAN
+
+true ya da false deger ataması için kullanılır.
+0 ya da 1 boolean olarak kullanılamaz.
+
+&& ->iki koşulda doğruysa true dondurur diğer koşulda false.
+|| ->Tek bir koşul doğruysa true döndürür.
+and -> && ile aynı
+or ->|| ile aynı
+
+ARRAYS
+Dizi tanımlamaları için kullanılır
+arrayOf(aynı tip degerler)
+arrayOf<Any>(farklı tip degerler)
+arrayOfNulls<Type>(size) verilen boyut kadar null değer içeren dizi tanımlanır. //Performans düşüklüğü yapar.Kod kalitesini azaltır Any
+indexler 0dan başlar
+
+Array<Type>(size){higher order function}
+Higher Order function,içerisi dizinin boyutu kadar index'i bir arttırarak çalışır
+
+ByteArray,ShortArray,IntArray,LongArray,DoubleArray,FloatArray gibi tanımlamalarda yapılır.
+index değerine atama için set(index,value) ya da [index]=value kullanılabilir.
+index degerine ulaşmak için get(index) ya da [index] ile ulaşılabilir.
+Arrayın val olarak tanımlanması içerisindeki değerlerin val olması anlamına gelmez,değiştirebilirsin.
+
