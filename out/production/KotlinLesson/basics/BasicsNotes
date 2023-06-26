@@ -1,0 +1,60 @@
+Type    Size     Min Value     Max Value
+Byte    8 Bit    -128          127
+Short   16 Bit   -32768        32767
+Int     32 Bit   (-2^31)       (-2^31 -1)
+Long    64 Bit   (-2^63)       (-2^63-1)
+
+
+Type    Size     Significant Bits    Exponent Bits  Decimal Digits
+Float   32       24                  8              6-7
+Double  64       53                  11             15-16
+
+Değişkene değer ataması yapılırken maksimum performans almak için doğru değişken tipini kullanmak gerekir.
+Değişken türünü belirtmediğinde eğer sayı Int aralığından büyük değilse default tip Int olur.
+Değişken türünü belirtmediğinde eğer sayı Int aralığından büyükse default tip Long olur.
+
+Long değişken için sayının sonuna "L" konularak deger ataması yapılabilir.
+Float değişken için sayının sonuna "F" ve "f" konularak değer ataması yapılabilir.
+
+Sayı yazarken karışıklığı önlemek amacıyla alt çizgi kullanabilirsin.Derlemede alt çizgisiz olarak alır
+ex -> val one=1_000_000_000
+
+Boxed -> Değişkenin obje referansi olarak tutulmasıdır
+UnBoxed -> Değişkenin primitive olarak tutulmasidir.
+
+=== operatoru degişkenlerin referansını karsılastırırken kullanılır.
+== operatoru değişkenlerin değerini karşılaştırırken kullanılır.
+
+Int? bu ifade değişkenin nullable alabileceğini gösterir.
+
+TYPE CONVERSION
+
+Implicit Type Conversion ->Ortulu - belirgin olmayan şekilde
+Explicit Type Conversion ->Açık -> belirgin
+*Kotlinde implicit type conversion yoktur
+
+//toByte(), toShort(), toInt(), toLong(), toFloat(), toChar(),toString(),
+
+Değer aralığı kucuk olan tipler buyuk olan tiplere sorunsuz acık(explicit) şekilde dönüştürülür.
+Buyuk degeri daha kucuk bir degere dönüştüremezsin hatalı sayı verir
+
+String to Number donusumler için Java'dan aşina olduğumuz tip donusumlerı kullanılabilir
+
+parseByte(),parseShort(),parseInt(), parseLong(), parseDouble(),parseFloat(),
+
+CHARACTERS
+
+Tek tırnakların arasına, harf,sayi, escape char ya da unicode yazarak kullanılır.
+Çift tırnak ->String ,char değil
+
+**Number deger alan bir char değişkei int'e çevrilirken,gerçek sayısal degerını almaz.
+ASCII tablosundaki sayının değerini alır.
+Tek karakter kabul ediyor.Bir durum dışında Unicode karakter tanımlamak için kullanabilirsin.
+
+Escape karakterler
+'\t' -> Tab Bırakmak için
+'\n' ->Alt satır için
+'\b' ->backspace için
+'\r' ->Satır başı
+
+
