@@ -83,3 +83,18 @@ index değerine atama için set(index,value) ya da [index]=value kullanılabilir
 index degerine ulaşmak için get(index) ya da [index] ile ulaşılabilir.
 Arrayın val olarak tanımlanması içerisindeki değerlerin val olması anlamına gelmez,değiştirebilirsin.
 
+STRING
+
+Çift tırnak içerisine yazılan karakterler bütünüdür.
+Bir string ifadenin tum karakterlerini tek tek alıp char bir listeye atabilirsin.
+
+Farklı tipteki bir degişkenin onune String bir değişken koyup toplanırsa sonuç string dondurur.
+**ancak string bir değişken ya da ifadenin sonuna,+ operator ile, farklı tipte bir değişken toplanırsa hata verir.
+
+Herhangi bir degişken + operatorune ihtiyac duyulmadan direkt olarak "" arasına yazılabilir.
+Bunun için sadece $ işaretine ihtiyaç vardir.String template denir.
+Eğer değişkenin bir ozelliğine ihtiyac duyacaksanız ${} ifadesi kullanılabilir.
+
+3 tane çift tırnak kullanarak Raw String oluşturulabilir.
+trimIndent() fonksiyonu ile bu Raw String'in kenar boşlukları silinebilir.En soldaki karakteri baz alarak siler.
+
