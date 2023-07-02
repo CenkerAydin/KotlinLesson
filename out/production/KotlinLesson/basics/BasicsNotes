@@ -98,3 +98,26 @@ Eğer değişkenin bir ozelliğine ihtiyac duyacaksanız ${} ifadesi kullanılab
 3 tane çift tırnak kullanarak Raw String oluşturulabilir.
 trimIndent() fonksiyonu ile bu Raw String'in kenar boşlukları silinebilir.En soldaki karakteri baz alarak siler.
 
+RANGE
+
+Küçükten büyüğe liste oluşturmak için ... operatorunu ya da rangeTo() fonksiyonunu kullanabilirsiniz.
+Charlardan oluşan bir liste de tanımlanabilir.Türkçe karakterleri almaz.
+Büyükten küçüğe gitmek için downTo() methodunu kullan.
+step fonksiyonu ile atlamalı sayma yapabilirsiniz.
+
+CharRange, IntRange gibi primitive tiplerle de range tanımı yapılabilir.
+bu tipleri kullanarak first,last,step count gibi ek bilgilere ulaşabilirsin.
+
+NULLABLE
+
+Bir değişkene null değer taması yapabilmek için değişken tipinin sonuna ? işareti konulur.
+Eğer bir değişkene tip verilmez ve direkt null ataması yapılırsa, IDE tip çıkarımı yaparken
+bu değişkenin değerini Nothing? olarak işaretler.Çünkü hangi tipe karşılık geldiğini bilemez.
+Eğer değişken kesin null olmayacaksa değişken tipini nullable yapma.
+Kesin dönmesi gereken işlemler için null olmasın,dönmemesi gerekiyorsa nullable olabilir.
+Performans problemi yaratır.Memoryda tutulma fark yaratır.
+Null olan veriyle işlem yapcaksan !!. veya ?. ile işlem yapman gerek.
+
+?. -> değer nullsa o bloğu çalıştırma
+!!. ->değer nullsa npe(null pointer exception) alır.
+Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver  of type Int?
