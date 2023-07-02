@@ -98,3 +98,13 @@ Eğer değişkenin bir ozelliğine ihtiyac duyacaksanız ${} ifadesi kullanılab
 3 tane çift tırnak kullanarak Raw String oluşturulabilir.
 trimIndent() fonksiyonu ile bu Raw String'in kenar boşlukları silinebilir.En soldaki karakteri baz alarak siler.
 
+RANGE
+
+Küçükten büyüğe liste oluşturmak için ... operatorunu ya da rangeTo() fonksiyonunu kullanabilirsiniz.
+Charlardan oluşan bir liste de tanımlanabilir.Türkçe karakterleri almaz.
+Büyükten küçüğe gitmek için downTo() methodunu kullan.
+step fonksiyonu ile atlamalı sayma yapabilirsiniz.
+
+CharRange, IntRange gibi primitive tiplerle de range tanımı yapılabilir.
+bu tipleri kullanarak first,last,step count gibi ek bilgilere ulaşabilirsin.
+
