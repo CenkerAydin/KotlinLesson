@@ -1,0 +1,16 @@
+OPERATORS
+
+number=10
+++'yı başa koyarsana artırıp çıktıyı verir.
+sona koyarsan çıktıyı verip artırır.
+println(number) //10
+println(number++) //10 ama artık number 11 oldu
+println(number) //11
+println(++number) //12
+
+compareTo methodu iki değeri karşılaştırır.
+1.sayı 2.sayıden küçükse -1
+1.sayı 2.sayıya eşitse 0
+1.sayı 2.sayıdan büyükse +1
+
+equals eşit mi deil mi sorgular true veya false dönderir.
