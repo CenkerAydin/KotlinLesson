@@ -48,3 +48,20 @@ String name=isStudent ? "true" : "false" //Ternary operatoru
 2 farklı tipteki number değişkenler karşılaştırılırken equals fonksiyonu önce tipleri karşılaştırdığı için
 eğer tipler uyuşmuyorsa, ide hata verecektir.
 
+WHEN
+
+javada switch caselerinin yerine kullanılır.
+when(karşılaştırılacak ifade)
+    value ->{}
+    value ->{}
+    else  -> {}
+    formatıyla kullanılır.
+    {} arasına tek satır kod yazılacaksa bu durumda {} kullanmayabilirsin.
+    "tr", "az" gibi aynı kodu çalıştıracak caseler varsa araya virgul koyup yazabilirsin.
+
+whenin yanına karşılaştırma ifadesi eklemeden,caselerin yanına da ekleyebilirsin.
+bu kullanım sayesinde && || and or xor gibi ifadeleri kullanabilirsin.
+
+is !is ile bir classın referansı olunup olunmadığı kontrolu yapılabilir.
+
+Rangeleri in !in şeklinde kontrolu yapılabilir.
