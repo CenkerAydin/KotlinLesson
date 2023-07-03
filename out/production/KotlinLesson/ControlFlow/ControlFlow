@@ -14,3 +14,54 @@ compareTo methodu iki değeri karşılaştırır.
 1.sayı 2.sayıdan büyükse +1
 
 equals eşit mi deil mi sorgular true veya false dönderir.
+
+x=19
+a=5
+a+=x //a'nın yeni değeri 24
+a-=x // a'nın yeni değeri -14
+a*=x //a'nın yeni değeri 95
+a/=x //a'nın yeni değeri 0
+a%=x // a'nın yeni değeri yine 5 mod aldığı için
+
+bir sayının önüne tek + veya - koyarsan o işareti belirler
+-a // çıktı -5
+bir  boolean değerin önüne ! koyarsan tersini alır.
+=== ifadesi işaret edilen referans tiplerini karşılaştırır.
+== ifadesi değeri karşılaştırılır.
+= ifadesi değer ataması yapar.
+
+IF-ELSE
+if else caselerinden sonra suslu parantez açılır ve kapanır.
+Tek satır kod yazcaksak suslu parantez kullanmak zorunda değilsin.
+Ama clean code için her zaman parantez aç.
+If- else caselerinin state ve expression olmak uzere 2 kullanımı vardır.
+State kullanımı sadece if else kullanarak şartlı durumlarımıız kullanmaktır
+Expression kullanımı ise bir valueye değer olarak eşitliğin karşı tarafına if else kodlarını yazmaktır.
+Expression ile kullanıldığında elsenin son satırındaki kod baz alınır ona dikkat et
+
+Kotlinde if elselerin Expression kullanımından oturu ternary operatoru yoktur
+Ternary operatoru javada kullanılır
+val isStudent=false
+val isStudent2=if(isStudent){"true"} else{"false"}
+String name=isStudent ? "true" : "false" //Ternary operatoru
+
+2 farklı tipteki number değişkenler karşılaştırılırken equals fonksiyonu önce tipleri karşılaştırdığı için
+eğer tipler uyuşmuyorsa, ide hata verecektir.
+
+WHEN
+
+javada switch caselerinin yerine kullanılır.
+when(karşılaştırılacak ifade)
+    value ->{}
+    value ->{}
+    else  -> {}
+    formatıyla kullanılır.
+    {} arasına tek satır kod yazılacaksa bu durumda {} kullanmayabilirsin.
+    "tr", "az" gibi aynı kodu çalıştıracak caseler varsa araya virgul koyup yazabilirsin.
+
+whenin yanına karşılaştırma ifadesi eklemeden,caselerin yanına da ekleyebilirsin.
+bu kullanım sayesinde && || and or xor gibi ifadeleri kullanabilirsin.
+
+is !is ile bir classın referansı olunup olunmadığı kontrolu yapılabilir.
+
+Rangeleri in !in şeklinde kontrolu yapılabilir.
