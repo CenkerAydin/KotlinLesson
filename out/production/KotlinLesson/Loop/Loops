@@ -1,0 +1,15 @@
+FOR
+
+3 farklı şekilde for tanımlanabilir.
+value in list -> value değerlerini alabilirsiniz.
+index in list.indices ->index değerlerini alabilirsiniz.
+(index,value) in list.withIndex() ->index,value değerlerini alabilirsiniz.
+
+repeat(size) şeklinde herhangi bir listeye ihtiyaç duymadan tekrarlayan işler yapabilirsin
+
+break kullanarak ilgili şart sağlanırsa, donguden çıkabilirsiniz.
+continue kullanarak ilgili şart sağlanırsa, donguye o değeri atlayarak devam edebilirsiniz.
+
+iç içe for dongulerinde bir ustteki fora değil de iki ustteki üç ustteki fora dönmek istiyorsak
+label kullanabiliriz. bunun için labelname@ ifadesini igili forun onune yazıp
+return veya continue ypacağımız yere @labelname şeklinde yazmak lazım
