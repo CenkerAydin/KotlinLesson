@@ -13,3 +13,9 @@ continue kullanarak ilgili şart sağlanırsa, donguye o değeri atlayarak devam
 iç içe for dongulerinde bir ustteki fora değil de iki ustteki üç ustteki fora dönmek istiyorsak
 label kullanabiliriz. bunun için labelname@ ifadesini igili forun onune yazıp
 return veya continue ypacağımız yere @labelname şeklinde yazmak lazım
+
+WHILE
+
+Değişen bir şey yok, diğer dillerde nasıl kullanıyorsanız kotlinde de aynı şekil kullan.
+Eğer bir donguye ihtiyacınız varsa ve bu dongu sırasında if-else ile bir şartlı durum varsa bu durumda
+for+if else yerine while kullanabailirsin.

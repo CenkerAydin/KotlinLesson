@@ -11,10 +11,12 @@ fun main() {
     for (value in countryCodeArray){
         print("$value ")
     }
+
     println()
     for (index in countryCodeArray.indices){ // indices bize IntRange bilgisi döner.
         print("\n$index değeri: ${countryCodeArray[index]} ")
     }
+
     println()
     for ((i,v) in countryCodeArray.withIndex()){
         print("\n$i değeri: $v")

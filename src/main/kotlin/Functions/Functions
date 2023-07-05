@@ -1,0 +1,39 @@
+FUNCTIONS BASICS
+
+fun keyword'u ile fonksiyonlar başlar.
+fonksiyon ismi verilir.
+parametre parantezleri açılır ve parantezler girilir.
+:Operatoru ve geri dönüş değeri yazılır.
+Fonksiyon body'si açılır ve kapatılır.
+Geri dönüş değeri verilmeyen fonksiyonlar Unit tipini geri döndürür.
+Unit ->boş, bir şey döndürmez
+
+Fonksiyon çağrılırken ismi ve parametreleri kullanılır.
+Eğer bir geri dönüşü varsa bir değişkene atabilir.
+Fonksiyon kullanmak ilerde yapılabilecek değişiklikler için zaman kaybını önler.
+Fonksiyon parametresi tanımlanırken,val var gibi betimleyiciler kullanılmaz.
+
+Bir class'ın fonksiyonunu cağırırken ise nokta işaretini kullanırız
+Math.pow(2.0,3.0)
+= ile fonksiyonlara default değer verilebilir.(Default Argument)
+Default değer ataması yapmak function overload işlemi yapmamızı sağlar.
+Tekrar tekrar aynı fonksiyonun farklı varyasyonlarını yazmak durumunda kalmayız.
+Default değeri olan parametrelere sahip bir fonksiyon çağırılırken,default değeri olan parametrelere değer atamak
+şart değildir.Default değeri olan bu parametreler opsiyonel parametrelerdir.
+
+Default değeri olan parametrelere değer atanmadan fonksiyon cağırılacaksa bu durumda parametre sırası değişir.
+Ide'ye hangi  parametreye değer atadığınızı söylemek için Named Argumentsleri kullanmanız gerekir
+
+Çok uzun sayıda parametreniz olacaksa "variable number of arguments" -vararg tanımlanabilir.
+Bu sayede fonksiyon tek bir parametre alıyor gibi gozukurken kendisine çok miktarda değişken atanabilir.
+Bu değişkenlere array'e erişir gibi erişebilirsiniz. [index] ya da .get(index) şeklinde.
+Aynı fonksiyon içerisinde birden fazla vararg tanımı yapılmasına izin verilmez.
+vararg tek ya da son parametre olarak yazılırsa ,JVM e hazırlanırken, javadaki "String..." gibi aynı kod derlenir.
+Ancak vararg param birden fazla tanımlanırken ortada ya da başta yer alırsa JVM e hazırlanırken Arraye donusturerek derlenir.
+Bu da performans farkı oluşturur demektir.
+
+vararg parametresi olarak arrayOf kullanılmak istenirse * operatoru eklenmelidir.(Spread Operatoru)
+bu operator diğer dillerdeki pointer kullanımı anlamına gelmez.Kotlinde pointerlar yok.
+Clean Code prensibinde parametre sayınız 7yi geçmesin derler.Geçerse ya vararg kullan ya da data classından al parametreyi.
+
+Bir fonksiyona = koyularak da return edeceği değer yazılabilir.Tek satırda(Single Expression kullanımı)
