@@ -6,7 +6,7 @@ parametre parantezleri açılır ve parantezler girilir.
 :Operatoru ve geri dönüş değeri yazılır.
 Fonksiyon body'si açılır ve kapatılır.
 Geri dönüş değeri verilmeyen fonksiyonlar Unit tipini geri döndürür.
-Unit ->boş, bir şey döndürmez
+Unit ->boş,javada void gibi bir şey döndürmez
 
 Fonksiyon çağrılırken ismi ve parametreleri kullanılır.
 Eğer bir geri dönüşü varsa bir değişkene atabilir.
@@ -15,11 +15,15 @@ Fonksiyon parametresi tanımlanırken,val var gibi betimleyiciler kullanılmaz.
 
 Bir class'ın fonksiyonunu cağırırken ise nokta işaretini kullanırız
 Math.pow(2.0,3.0)
+
 = ile fonksiyonlara default değer verilebilir.(Default Argument)
 Default değer ataması yapmak function overload işlemi yapmamızı sağlar.
 Tekrar tekrar aynı fonksiyonun farklı varyasyonlarını yazmak durumunda kalmayız.
 Default değeri olan parametrelere sahip bir fonksiyon çağırılırken,default değeri olan parametrelere değer atamak
 şart değildir.Default değeri olan bu parametreler opsiyonel parametrelerdir.
+
+Fonksiyon Overload
+Fonksiyon ismi aynı,parametre sayısı farklı veya parametre sayısı aynı ama dönüş tipi farklı
 
 Default değeri olan parametrelere değer atanmadan fonksiyon cağırılacaksa bu durumda parametre sırası değişir.
 Ide'ye hangi  parametreye değer atadığınızı söylemek için Named Argumentsleri kullanmanız gerekir
@@ -37,3 +41,7 @@ bu operator diğer dillerdeki pointer kullanımı anlamına gelmez.Kotlinde poin
 Clean Code prensibinde parametre sayınız 7yi geçmesin derler.Geçerse ya vararg kullan ya da data classından al parametreyi.
 
 Bir fonksiyona = koyularak da return edeceği değer yazılabilir.Tek satırda(Single Expression kullanımı)
+
+Default değeri olan parametrelere sahip bir fonksiyon java sınıflarından çağırılacaksa eğer
+bu fonksiyona @JvmOverloads annotation'i verilmelidir.Boylece yazılan kod Jvm'e hazırlanarak çevrilir.
+İlgili fonksiyonun tum varyasyonları yazılır(Overload edilir.)
