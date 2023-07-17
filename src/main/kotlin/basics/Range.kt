@@ -1,7 +1,7 @@
 package basics
 
 fun main() {
-    val numbers=1..10 //[1,100]
+    val numbers=1..10 //[1,10V]
     val numbers2=1.rangeTo(100).reversed() //100den 1 e kadar yazdırır.
 
     val char='A'..'Z'
