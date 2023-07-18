@@ -30,4 +30,41 @@ val car0=Car() oluşturur.
 oluşturduktan sonra primary const. içindeki parametrelerden oluşan bir parametre verdiyseniz init bloğu çalışır.
 primary const. içindeki parametrelerden oluşmayan bir parametre verdiyseniz önce init sonra secondary const.lar çalışır
 
+Javada olduğu gibi default const. kotlin dilinde de mevcut.
+Primary const ve secondary const. yazmasanız bile default const. oluşur
+Eğer secondary constructorın içini if case ile ayıracaksanız secondary const. overload edip if case durumlarını parametre olarak geçirebilirsiniz.
+Bu şekilde daha iyi bir kod yazarsınız.
 best practice olarak class ismi büyük fonksiyon ismi küçük başlat.
+
+VISIBILITY MODIFIERS
+
+Javada bir değişkeni herhangi bir erişim belirteci kullanmadan tanımlarsak,
+default olarak package-private olur.Yani sadece aynı paket içindeki diğer sınıflardan erişilebilir.
+
+Bu durum kotlinde farklıdır. Herhangi bir erişim belirteci kullanmadan tanımlarsak,
+default olarak public olur.
+
+private ->Sadece bağlı bulunduğu class içerisinden erişilebilir.Başka hiçbir yerden erişilemez.(Child class dahil)
+public -> Her yerden erişilebilir.
+protected ->Bağlı bulunduğu class ve bulunduğu classı miras alan(inheritance) classlar erişebilir sadece.
+internal ->Module bazında public olur. Onun dışında her yerde private
+
+protected kotlinde top level tanımlamalarda kullanılamaz.
+top level olduğu için hiçbir zaman miras alınamaz o yüzden protected kullanılamaz.
+
+PROPERTY VS FIELD
+Java dilinden örnek:
+field -> String name="Cenk"
+
+property ->
+
+ public String getName(){
+    return name;
+}
+public void setName(String name){
+   this.name=name;
+}
+
+Kotlinde her şey public tutulur.Kotlinde field değişken tanımlanmaz.
+val name="Cenk" -> direkt olarak property olur.
+O yüzden kotlinde encapsulation çok sağlamdır.

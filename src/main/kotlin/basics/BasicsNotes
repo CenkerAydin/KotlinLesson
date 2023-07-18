@@ -1,3 +1,6 @@
+Kotlinde top level tanımlamalar yapılabilir
+Top level ->Herhangi bir classın içinde bulunmadan değişken, fonksiyon tanımlayabiliriz.
+
 Type    Size     Min Value     Max Value
 Byte    8 Bit    -128          127
 Short   16 Bit   -32768        32767
