@@ -65,6 +65,26 @@ public void setName(String name){
    this.name=name;
 }
 
-Kotlinde her şey public tutulur.Kotlinde field değişken tanımlanmaz.
+Kotlinde her şey public tutulur.Encapsulation sağlamak için değişkenler direkt property olur.
+Kotlinde field değişken tanımlanmaz.
+Kotlinde değişken tanımlandığında arka tarafında get ve set methodları şeklinde bir üretim yapılır.
 val name="Cenk" -> direkt olarak property olur.
 O yüzden kotlinde encapsulation çok sağlamdır.
+
+Eğer  değişken public ise set fonksiyonunu private yapabilirsin ama get fonksiyonunu
+private yapamazsın sebebi ise, eğer public ise her yerden erişebilirsin ama get fonksiyonu private olursa
+sadece o class içinde erişilebilir olur.
+
+INHERITANCE
+Kotlinde bütün classlar default olarak final tanımlanır.
+Eğer bir classı inherit almak istiyorsan o classın önünde open keywordu olması lazım.
+bir classı inherit almak istiyorsanız : işaretini kullanmanız lazım.
+inherit aldığın bir classın en az bir const. kullanman gerek.
+Override ->fonksiyonu veya değişkeni alıp child classda farklı bir işlevde kullanmak için kullanılır.(Polymorphism ilkesi)
+super keywordu ust classtaki fonksiyonu işaret eder.
+Eğer override fonksiyonu üst classtaki işlevi yapmasını istiyorsanız super keywordunu kullanmanız gerekir.
+Bir class başka bir classı inherit ediyorsa o classın sahip olduğu her şeyi alır.
+inherit edilen classa genel olarak parent-class
+inherit alan classa child-class denir.
+Karmaşıklığı önlemek için kullanılır.
+Bazen parent-classların sahip olduğu yetkinlikleri child-classlarda değiştirmek isteyebilirsin.(Overload)
