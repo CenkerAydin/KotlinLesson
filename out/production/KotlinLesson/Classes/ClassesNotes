@@ -1,0 +1,90 @@
+CLASSES
+
+Classlar parametre alabilir;
+Default değer alabilirler.
+Geri dönüş tipi yoktur.
+
+Classın yanına const ekleyebilirsin ->Primary const.
+
+class Car constructor(wheelCount:Int){
+
+}
+class Car(wheelCount:Int){
+
+}
+
+class sınıfının içine const ekleyebilirsin -> Secondary const.
+Secondary const. sırasının önemi yok
+
+class Car(wheelCount:Int){
+
+    constructor():this() {
+
+    }
+}
+Secondary const. mecburi olarak primary const. işaret etmek zorunda.
+this:() ->Primary const. işaret eder.
+
+bir classtan nesne oluşturmak için
+val car0=Car() oluşturur.
+oluşturduktan sonra primary const. içindeki parametrelerden oluşan bir parametre verdiyseniz init bloğu çalışır.
+primary const. içindeki parametrelerden oluşmayan bir parametre verdiyseniz önce init sonra secondary const.lar çalışır
+
+Javada olduğu gibi default const. kotlin dilinde de mevcut.
+Primary const ve secondary const. yazmasanız bile default const. oluşur
+Eğer secondary constructorın içini if case ile ayıracaksanız secondary const. overload edip if case durumlarını parametre olarak geçirebilirsiniz.
+Bu şekilde daha iyi bir kod yazarsınız.
+best practice olarak class ismi büyük fonksiyon ismi küçük başlat.
+
+VISIBILITY MODIFIERS
+
+Javada bir değişkeni herhangi bir erişim belirteci kullanmadan tanımlarsak,
+default olarak package-private olur.Yani sadece aynı paket içindeki diğer sınıflardan erişilebilir.
+
+Bu durum kotlinde farklıdır. Herhangi bir erişim belirteci kullanmadan tanımlarsak,
+default olarak public olur.
+
+private ->Sadece bağlı bulunduğu class içerisinden erişilebilir.Başka hiçbir yerden erişilemez.(Child class dahil)
+public -> Her yerden erişilebilir.
+protected ->Bağlı bulunduğu class ve bulunduğu classı miras alan(inheritance) classlar erişebilir sadece.
+internal ->Module bazında public olur. Onun dışında her yerde private
+
+protected kotlinde top level tanımlamalarda kullanılamaz.
+top level olduğu için hiçbir zaman miras alınamaz o yüzden protected kullanılamaz.
+
+PROPERTY VS FIELD
+Java dilinden örnek:
+field -> String name="Cenk"
+
+property ->
+
+ public String getName(){
+    return name;
+}
+public void setName(String name){
+   this.name=name;
+}
+
+Kotlinde her şey public tutulur.Encapsulation sağlamak için değişkenler direkt property olur.
+Kotlinde field değişken tanımlanmaz.
+Kotlinde değişken tanımlandığında arka tarafında get ve set methodları şeklinde bir üretim yapılır.
+val name="Cenk" -> direkt olarak property olur.
+O yüzden kotlinde encapsulation çok sağlamdır.
+
+Eğer  değişken public ise set fonksiyonunu private yapabilirsin ama get fonksiyonunu
+private yapamazsın sebebi ise, eğer public ise her yerden erişebilirsin ama get fonksiyonu private olursa
+sadece o class içinde erişilebilir olur.
+
+INHERITANCE
+Kotlinde bütün classlar default olarak final tanımlanır.
+Eğer bir classı inherit almak istiyorsan o classın önünde open keywordu olması lazım.
+bir classı inherit almak istiyorsanız : işaretini kullanmanız lazım.
+inherit aldığın bir classın en az bir const. kullanman gerek.
+Override ->fonksiyonu veya değişkeni alıp child classda farklı bir işlevde kullanmak için kullanılır.(Polymorphism ilkesi)
+super keywordu ust classtaki fonksiyonu işaret eder.
+Eğer override fonksiyonu üst classtaki işlevi yapmasını istiyorsanız super keywordunu kullanmanız gerekir.
+Bir class başka bir classı inherit ediyorsa o classın sahip olduğu her şeyi alır.
+inherit edilen classa genel olarak parent-class
+inherit alan classa child-class denir.
+Karmaşıklığı önlemek için kullanılır.
+Bazen parent-classların sahip olduğu yetkinlikleri child-classlarda değiştirmek isteyebilirsin.(Overload)
