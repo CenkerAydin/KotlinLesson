@@ -26,12 +26,11 @@ open class Shape(val name:String){
 }
 class Rectangle(name:String): Shape(name){
         override var mEdgeCount:Int
-        get() = super.mEdgeCount
+        get() = 6
         set(value) {}
 
     override fun drawShape() {
-        drawShape()
-        this.drawShape()
+
         super.drawShape()
 
         calculateArea()

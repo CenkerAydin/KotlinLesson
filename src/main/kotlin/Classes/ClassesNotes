@@ -52,6 +52,7 @@ internal ->Module bazında public olur. Onun dışında her yerde private
 protected kotlinde top level tanımlamalarda kullanılamaz.
 top level olduğu için hiçbir zaman miras alınamaz o yüzden protected kullanılamaz.
 
+open ve final access modifiersdır.Visibility modifiers ile karıştırma.
 PROPERTY VS FIELD
 Java dilinden örnek:
 field -> String name="Cenk"
@@ -79,6 +80,9 @@ INHERITANCE
 Kotlinde bütün classlar default olarak final tanımlanır.
 Eğer bir classı inherit almak istiyorsan o classın önünde open keywordu olması lazım.
 bir classı inherit almak istiyorsanız : işaretini kullanmanız lazım.
+inherit aldığın sınıftan bir classı override etmeden child classta aynı parametre,geri dönüş
+şekliyle kullanamazsın.
+bir class birden fazla classı inherit alamazsın.
 inherit aldığın bir classın en az bir const. kullanman gerek.
 Override ->fonksiyonu veya değişkeni alıp child classda farklı bir işlevde kullanmak için kullanılır.(Polymorphism ilkesi)
 super keywordu ust classtaki fonksiyonu işaret eder.
@@ -88,3 +92,19 @@ inherit edilen classa genel olarak parent-class
 inherit alan classa child-class denir.
 Karmaşıklığı önlemek için kullanılır.
 Bazen parent-classların sahip olduğu yetkinlikleri child-classlarda değiştirmek isteyebilirsin.(Overload)
+
+ABSTRACT CLASS-INTERFACES
+
+Abstract classı bir şablon gibi düşünebilirsin.
+Burada final ve open modifierları kullanmak anlamsız ve yanlıştır.
+Abstract olarak yazılmış classa yeni eklenen tüm abstract yapılar,
+Tum child classlarda override edilmek zorundadır.
+Eğer abstract classınıza eklemek istediğiniz opsiyonel yapılar varsa,bunları child classların tamamında override
+etmek zorunda olmayalım diye, open keywordu ile tanımlayabiliriz.
+Abstract bir class, abstract bir classı miras alırsa, abstract yapıları override etmek zorunda değildir.
+Abstract fun, bodysi olmaz.Propertylerinde default değeri olmaz.
+Abstract classlar aynı zamaanda instance'i oluşturulamayan classlar.
+Bu sebeple singleton gibi patternler için de kullanılabiliyorlar.
+abstract keywordu miras alınabilmeyi sağlar.
+
+Eğer abstractı classı, düz bir class inherit alıyorsa tüm yapıları override etmek zorunda
