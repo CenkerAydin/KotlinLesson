@@ -1,6 +1,10 @@
 package Classes
 
+interface McDonaldsService{
+     fun motoCarrier()
+}
 abstract class MCDonalds{
+
     abstract val fridge:Fridge
     abstract val superVisor:SuperVisor
     abstract val employeeOne:Employee
@@ -17,11 +21,15 @@ abstract class MCDonalds{
 
 abstract class McDonaldsExpress:MCDonalds(){
     abstract fun sellCoffee():McCoffee
-    override fun clean(clock: Int){
+   final override fun clean(clock: Int){
        println("Clean Time: $clock")
     }
 }
 class McDonaldsMaltepe: MCDonalds(),McDonaldsService{
+    override fun motoCarrier() {
+        TODO("Not yet implemented")
+    }
+
     override val fridge: Fridge
         get() = TODO("Not yet implemented")
 
@@ -47,3 +55,35 @@ class McDonaldsMaltepe: MCDonalds(),McDonaldsService{
     override val policeOfficer: Police
         get() = super.policeOfficer
 }
+
+class McDonaldsMaltepeExpress :McDonaldsExpress(){
+    override fun sellCoffee(): McCoffee {
+        TODO("Not yet implemented")
+    }
+
+    override val fridge: Fridge
+        get() = TODO("Not yet implemented")
+    override val superVisor: SuperVisor
+        get() = TODO("Not yet implemented")
+    override val employeeOne: Employee
+        get() = TODO("Not yet implemented")
+    override val employeeTwo: Employee
+        get() = TODO("Not yet implemented")
+    override val employeeThree: Employee
+        get() = TODO("Not yet implemented")
+    override val menuList: List<McHamburger>
+        get() = TODO("Not yet implemented")
+
+}
+
+fun main() {
+
+}
+
+class Fridge
+
+class SuperVisor
+class McHamburger
+class Police
+class McCoffee
+class Employee

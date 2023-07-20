@@ -94,7 +94,10 @@ Karmaşıklığı önlemek için kullanılır.
 Bazen parent-classların sahip olduğu yetkinlikleri child-classlarda değiştirmek isteyebilirsin.(Overload)
 
 ABSTRACT CLASS-INTERFACES
+Abstractler ve interfacelerin tek başına olmaları anlamsızdır,
+inherit alınmaları veya impelement edilmeleri lazım
 
+Abstraction içselleştirerek öğrendiğinizde bir üst seviyeye çıkarsınız.
 Abstract classı bir şablon gibi düşünebilirsin.
 Burada final ve open modifierları kullanmak anlamsız ve yanlıştır.
 Abstract olarak yazılmış classa yeni eklenen tüm abstract yapılar,
@@ -102,9 +105,18 @@ Tum child classlarda override edilmek zorundadır.
 Eğer abstract classınıza eklemek istediğiniz opsiyonel yapılar varsa,bunları child classların tamamında override
 etmek zorunda olmayalım diye, open keywordu ile tanımlayabiliriz.
 Abstract bir class, abstract bir classı miras alırsa, abstract yapıları override etmek zorunda değildir.
-Abstract fun, bodysi olmaz.Propertylerinde default değeri olmaz.
+Abstract fun, bodysi olmaz. Propertylerinde default değeri olmaz.
 Abstract classlar aynı zamaanda instance'i oluşturulamayan classlar.
 Bu sebeple singleton gibi patternler için de kullanılabiliyorlar.
 abstract keywordu miras alınabilmeyi sağlar.
 
 Eğer abstractı classı, düz bir class inherit alıyorsa tüm yapıları override etmek zorunda
+Eğer abstract class override edip düz class tarafından inherit alıyorsa düz class o yapıyı override etmeyebilir.
+Abstract class bir abstract class tarafından inherit alıyor tüm yapıları override etmek zorunda değilsin.
+
+Interfaceler implement edilir.
+Interfacelerin abstract classlardan en buyuk fakrı state(değeri)  tutamıyor olusları.State tutması için değerinin değiştirilmesi gerekir.
+Property initializers are not allowed in interfaces
+Interface içerisindeki initial değeri olmayan bir property(fiedl) ya da bodysi olmayan bir fonksiyon
+abstract olarak da tanımlanabilir.
+Interfaceleri anlamı gereği final yapamazsınız.Open yazılması gereksizdir.(Redundant)
