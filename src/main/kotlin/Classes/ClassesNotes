@@ -98,6 +98,7 @@ Abstractler ve interfacelerin tek başına olmaları anlamsızdır,
 inherit alınmaları veya impelement edilmeleri lazım
 
 Abstraction içselleştirerek öğrendiğinizde bir üst seviyeye çıkarsınız.
+Abstractlar sözleşme metni gibi düşünebilirsin.
 Abstract classı bir şablon gibi düşünebilirsin.
 Burada final ve open modifierları kullanmak anlamsız ve yanlıştır.
 Abstract olarak yazılmış classa yeni eklenen tüm abstract yapılar,
@@ -115,7 +116,9 @@ Eğer abstract class override edip düz class tarafından inherit alıyorsa düz
 Abstract class bir abstract class tarafından inherit alıyor tüm yapıları override etmek zorunda değilsin.
 
 Interfaceler implement edilir.
+Interface neleri yapabileceğini gösterir.(Yüzmeyi bilmek interface, yürümek abstract default çünkü.)
 Interfacelerin abstract classlardan en buyuk fakrı state(değeri)  tutamıyor olusları.State tutması için değerinin değiştirilmesi gerekir.
+Interfaceler bir yerden tetiklenmeyi ,implement etmeyi beklerler.
 Property initializers are not allowed in interfaces
 Interface içerisindeki initial değeri olmayan bir property(fiedl) ya da bodysi olmayan bir fonksiyon
 abstract olarak da tanımlanabilir.
