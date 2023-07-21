@@ -115,11 +115,45 @@ Eğer abstractı classı, düz bir class inherit alıyorsa tüm yapıları overr
 Eğer abstract class override edip düz class tarafından inherit alıyorsa düz class o yapıyı override etmeyebilir.
 Abstract class bir abstract class tarafından inherit alıyor tüm yapıları override etmek zorunda değilsin.
 
-Interfaceler implement edilir.
+Interfaceler implement edilir.İmplement işlemi extend gibi iki nokta ile yapılır.
 Interface neleri yapabileceğini gösterir.(Yüzmeyi bilmek interface, yürümek abstract default çünkü.)
-Interfacelerin abstract classlardan en buyuk fakrı state(değeri)  tutamıyor olusları.State tutması için değerinin değiştirilmesi gerekir.
+Interfacelerin abstract classlardan en buyuk farkı state(değeri)  tutamıyor olusları.State tutması için değerinin değiştirilmesi gerekir.
 Interfaceler bir yerden tetiklenmeyi ,implement etmeyi beklerler.
 Property initializers are not allowed in interfaces
 Interface içerisindeki initial değeri olmayan bir property(fiedl) ya da bodysi olmayan bir fonksiyon
 abstract olarak da tanımlanabilir.
 Interfaceleri anlamı gereği final yapamazsınız.Open yazılması gereksizdir.(Redundant)
+
+Bir interface içerisindeki fonksiyonlardan body'si olanlar override edilmek zorunda değildir.
+Body'si olmayan tüm fonksiyonlar ise class'a implement edildiğinde override edilmek zorunda.
+
+Interfacelere tanımlanan propertylerde (field) initial değer alma zorunluluğu yoktur.
+
+Eğer implement edilen interface, başka bir interfacei implement ediyorsa ve bu interfacein uyeleri child interfacede
+override edilmiş ise Child interfacei implement eden classda bu propertylerin override edilme zorunluluğu kalkar.
+
+Bir class Abstract ise bir interface'i implement ettikten sonra bu interface'in fonksiyonlarını override etmek zorunda kalmıyor.
+
+Propertyler (field) de interfacelere tanımlanabilirler.
+Propertylerden de değer ataması yapılmamış olanlar zorunlu olarak override edilirler.
+Eğer property get fonksiyonu ile bir statik değer geri donuyorsa, override etme zorunluluğu kalkar.
+
+Interface içerisine tanımlı ve override edilme zorunluluğu olan propertyler (field)
+primary constructor içerisinde de override edilebilirler.
+
+Body'si olan (override edilme zorunluluğu olmayan) bir interface fonksiyonu override eidlirse,
+override edildiği yerde body'si içerisinden super'i çağrılabilir.(Çağırmak zorunda değilsiniz.)
+
+Birden fazla interface bir classa tanımlanabilir.
+Tanımlanırken aralarına virgul koyulur.
+
+: işaretinden sonra yapının sonuna() geliyorsa classtır (inheritance) alır.
+: işaretinden sonra yapının sonunda () yoksa interfacedir(implement) edilir.
+
+2 farklı interface'in aynı fonksiyonları olması durumunda, bu fonksiyonların override edilmesi
+sırasında aynı fonksiyonu 2 kere yazarak override edemeyiz.
+Eğer implement ettiğimiz interfacelerin aynı isimde fonksiyonları bulunuyorsa,
+tek bir fonksiyon override işlemi yapılır. Bunun içerisinden hangisinin bodysine erişmek istiyorsak
+o interfacein ismini <> işaretleri arasına yazmamız gerekiyor.
+
+Eğer implement edilen 2 interface de aynı fonksiyonlar varsa bu durumda bodyleri olsa da override edilmeleri zorunludur.
