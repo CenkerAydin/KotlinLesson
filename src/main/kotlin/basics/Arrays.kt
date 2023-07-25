@@ -25,7 +25,7 @@ fun main() {            //index=0 ,1 ,2 ,3 ,4 ,5
     firstCharArrays.set(3,'K')
     firstCharArrays[2]='N'
 
-    println("Index 2: "+firstCharArrays.get(2))
+    println("Index 2: ${firstCharArrays.get(2)}")
     println("Index 0: "+firstCharArrays[0])
 
 

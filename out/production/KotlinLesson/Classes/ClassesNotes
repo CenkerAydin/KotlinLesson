@@ -52,6 +52,7 @@ internal ->Module bazında public olur. Onun dışında her yerde private
 protected kotlinde top level tanımlamalarda kullanılamaz.
 top level olduğu için hiçbir zaman miras alınamaz o yüzden protected kullanılamaz.
 
+open ve final access modifiersdır.Visibility modifiers ile karıştırma.
 PROPERTY VS FIELD
 Java dilinden örnek:
 field -> String name="Cenk"
@@ -79,6 +80,9 @@ INHERITANCE
 Kotlinde bütün classlar default olarak final tanımlanır.
 Eğer bir classı inherit almak istiyorsan o classın önünde open keywordu olması lazım.
 bir classı inherit almak istiyorsanız : işaretini kullanmanız lazım.
+inherit aldığın sınıftan bir classı override etmeden child classta aynı parametre,geri dönüş
+şekliyle kullanamazsın.
+bir class birden fazla classı inherit alamazsın.
 inherit aldığın bir classın en az bir const. kullanman gerek.
 Override ->fonksiyonu veya değişkeni alıp child classda farklı bir işlevde kullanmak için kullanılır.(Polymorphism ilkesi)
 super keywordu ust classtaki fonksiyonu işaret eder.
@@ -88,3 +92,95 @@ inherit edilen classa genel olarak parent-class
 inherit alan classa child-class denir.
 Karmaşıklığı önlemek için kullanılır.
 Bazen parent-classların sahip olduğu yetkinlikleri child-classlarda değiştirmek isteyebilirsin.(Overload)
+
+ABSTRACT CLASS-INTERFACES
+
+Abstractler ve interfacelerin tek başına olmaları anlamsızdır,
+inherit alınmaları veya impelement edilmeleri lazım
+
+Abstraction içselleştirerek öğrendiğinizde bir üst seviyeye çıkarsınız.
+Abstractlar sözleşme metni gibi düşünebilirsin.
+Abstract classı bir şablon gibi düşünebilirsin.
+Burada final ve open modifierları kullanmak anlamsız ve yanlıştır.
+Abstract olarak yazılmış classa yeni eklenen tüm abstract yapılar,
+Tum child classlarda override edilmek zorundadır.
+Eğer abstract classınıza eklemek istediğiniz opsiyonel yapılar varsa,bunları child classların tamamında override
+etmek zorunda olmayalım diye, open keywordu ile tanımlayabiliriz.
+Abstract bir class, abstract bir classı miras alırsa, abstract yapıları override etmek zorunda değildir.
+Abstract fun, bodysi olmaz. Propertylerinde default değeri olmaz.
+Abstract classlar aynı zamaanda instance'i oluşturulamayan classlar.
+Bu sebeple singleton gibi patternler için de kullanılabiliyorlar.
+abstract keywordu miras alınabilmeyi sağlar.
+
+Eğer abstractı classı, düz bir class inherit alıyorsa tüm yapıları override etmek zorunda
+Eğer abstract class override edip düz class tarafından inherit alıyorsa düz class o yapıyı override etmeyebilir.
+Abstract class bir abstract class tarafından inherit alıyor tüm yapıları override etmek zorunda değilsin.
+
+Interfaceler implement edilir.İmplement işlemi extend gibi iki nokta ile yapılır.
+Interface neleri yapabileceğini gösterir.(Yüzmeyi bilmek interface, yürümek abstract default çünkü.)
+Interfacelerin abstract classlardan en buyuk farkı state(değeri)  tutamıyor olusları.State tutması için değerinin değiştirilmesi gerekir.
+Interfaceler bir yerden tetiklenmeyi ,implement etmeyi beklerler.
+Property initializers are not allowed in interfaces
+Interface içerisindeki initial değeri olmayan bir property(field) ya da bodysi olmayan bir fonksiyon
+abstract olarak da tanımlanabilir.
+Interfaceleri anlamı gereği final yapamazsınız.Open yazılması gereksizdir.(Redundant)
+
+Bir interface içerisindeki fonksiyonlardan body'si olanlar override edilmek zorunda değildir.
+Body'si olmayan tüm fonksiyonlar ise class'a implement edildiğinde override edilmek zorunda.
+
+Interfacelere tanımlanan propertylerde (field) initial değer alma zorunluluğu yoktur.
+
+Eğer implement edilen interface, başka bir interfacei implement ediyorsa ve bu interfacein uyeleri child interfacede
+override edilmiş ise Child interfacei implement eden classda bu propertylerin override edilme zorunluluğu kalkar.
+
+Bir class Abstract ise bir interface'i implement ettikten sonra bu interface'in fonksiyonlarını override etmek zorunda kalmıyor.
+
+Propertyler (field) de interfacelere tanımlanabilirler.
+Propertylerden de değer ataması yapılmamış olanlar zorunlu olarak override edilirler.
+Eğer property get fonksiyonu ile bir statik değer geri donuyorsa, override etme zorunluluğu kalkar.
+
+Interface içerisine tanımlı ve override edilme zorunluluğu olan propertyler (field)
+primary constructor içerisinde de override edilebilirler.
+
+Body'si olan (override edilme zorunluluğu olmayan) bir interface fonksiyonu override eidlirse,
+override edildiği yerde body'si içerisinden super'i çağrılabilir.(Çağırmak zorunda değilsiniz.)
+
+Birden fazla interface bir classa tanımlanabilir.
+Tanımlanırken aralarına virgul koyulur.
+
+: işaretinden sonra yapının sonuna() geliyorsa classtır (inheritance) alır.
+: işaretinden sonra yapının sonunda () yoksa interfacedir(implement) edilir.
+
+2 farklı interface'in aynı fonksiyonları olması durumunda, bu fonksiyonların override edilmesi
+sırasında aynı fonksiyonu 2 kere yazarak override edemeyiz.
+Eğer implement ettiğimiz interfacelerin aynı isimde fonksiyonları bulunuyorsa,
+tek bir fonksiyon override işlemi yapılır. Bunun içerisinden hangisinin bodysine erişmek istiyorsak
+o interfacein ismini <> işaretleri arasına yazmamız gerekiyor.
+
+Eğer implement edilen 2 interface de aynı fonksiyonlar varsa bu durumda bodyleri olsa da override edilmeleri zorunludur.
+
+DATA CLASS
+
+
+Data classlar en azından mutlaka 1 parametre almak zorundadır.
+Parametreler mutlaka val ya da var ile tanımlanmak zorundadır.
+Open, abstract, sealed, inner class yapılamaz.
+Tüm data classları final olduğu için final modifieri redundant uyarısı verir.
+Bir class inherit edemez ama data classlar başka classları inherit edebilir.
+
+Equals, hashCode, toString, copy, componentN fonksiyonları arka planda default olarak oluştururlar.
+Düz classdan farkı otomatik olarak üstteki fonksiyonlar vardır.Yazılmasına gerek yok.
+equals -> value, parametre karşılaştırması
+hashCode -> obje karşılaştırması
+toString ->classın içerdiği verileri yazdırır.
+copy ->O classın birebir aynısını kopyalar.
+Const. içindeki fonksiyonlar için component fonksiyonları yazılır.Her biri için geri dönüş değeri olarak yazılır.
+Yukarıdaki fonksiyonlardan biri override edilirse, oto generate edilen hali yazılmaz.
+Yukarıdaki fonksiyonlar sadece primary const. içerisindeki değişkenlerle çalışır.
+Data classlarda constructorun içinde parametre tanımlamakla, const. dışında parametre tanımlamak arasında fark var.
+
+componentN fonksiyonları sebebiyle destructturing declaration olarak data classlar set edilebiliyor
+
+toString gibi fonksiyonlarda primary const. değişkenleri kullanıldığı için val ya da var yazılmak zorundadır.
+
+Pair, Triple özelleştirilmiş generic data classlar mevcut

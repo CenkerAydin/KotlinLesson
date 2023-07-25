@@ -94,6 +94,7 @@ Karmaşıklığı önlemek için kullanılır.
 Bazen parent-classların sahip olduğu yetkinlikleri child-classlarda değiştirmek isteyebilirsin.(Overload)
 
 ABSTRACT CLASS-INTERFACES
+
 Abstractler ve interfacelerin tek başına olmaları anlamsızdır,
 inherit alınmaları veya impelement edilmeleri lazım
 
@@ -120,7 +121,7 @@ Interface neleri yapabileceğini gösterir.(Yüzmeyi bilmek interface, yürümek
 Interfacelerin abstract classlardan en buyuk farkı state(değeri)  tutamıyor olusları.State tutması için değerinin değiştirilmesi gerekir.
 Interfaceler bir yerden tetiklenmeyi ,implement etmeyi beklerler.
 Property initializers are not allowed in interfaces
-Interface içerisindeki initial değeri olmayan bir property(fiedl) ya da bodysi olmayan bir fonksiyon
+Interface içerisindeki initial değeri olmayan bir property(field) ya da bodysi olmayan bir fonksiyon
 abstract olarak da tanımlanabilir.
 Interfaceleri anlamı gereği final yapamazsınız.Open yazılması gereksizdir.(Redundant)
 
@@ -157,3 +158,32 @@ tek bir fonksiyon override işlemi yapılır. Bunun içerisinden hangisinin body
 o interfacein ismini <> işaretleri arasına yazmamız gerekiyor.
 
 Eğer implement edilen 2 interface de aynı fonksiyonlar varsa bu durumda bodyleri olsa da override edilmeleri zorunludur.
+
+DATA CLASS
+
+
+Data classlar en azından mutlaka 1 parametre almak zorundadır.
+Parametreler mutlaka val ya da var ile tanımlanmak zorundadır.
+Open, abstract, sealed, inner class yapılamaz.
+Tüm data classları final olduğu için final modifieri redundant uyarısı verir.
+Bir class inherit edemez ama data classlar başka classları inherit edebilir.
+
+Equals, hashCode, toString, copy, componentN fonksiyonları arka planda default olarak oluştururlar.
+Düz classdan farkı otomatik olarak üstteki fonksiyonlar vardır.Yazılmasına gerek yok.
+equals -> value, parametre karşılaştırması
+hashCode -> obje karşılaştırması
+toString ->classın içerdiği verileri yazdırır.
+copy ->O classın birebir aynısını kopyalar.
+componentN -> parametre sayısı kadar yazılır. Kodun daha temiz ve okunabilir olmasını ve descructturing declaration yapılmasını sağlar.
+Const. içindeki fonksiyonlar için component fonksiyonları yazılır.Her biri için geri dönüş değeri olarak yazılır.
+Yukarıdaki fonksiyonlardan biri override edilirse, oto generate edilen hali yazılmaz.
+Yukarıdaki fonksiyonlar sadece primary const. içerisindeki değişkenlerle çalışır.
+Data classlarda constructorun içinde parametre tanımlamakla, const. dışında parametre tanımlamak arasında fark var.
+
+componentN fonksiyonları sebebiyle destructturing declaration olarak data classlar set edilebiliyor
+
+toString gibi fonksiyonlarda primary const. değişkenleri kullanıldığı için val ya da var yazılmak zorundadır.
+primary const içinde val ya da var yazmanız classın içinde başka fonksiyonda veya class dışında o parametreye
+erişimi sağlar.
+
+Pair, Triple özelleştirilmiş generic data classlar mevcut
