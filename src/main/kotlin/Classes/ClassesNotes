@@ -251,3 +251,16 @@ hiçbir farkı kalmıyor.Enum class kullan.
 
 Enum classlar içinde class tutmaz sabit tutar.Sealed classlar içinde class tutar.
 Enum sabitleri kendi içlerinde özelleştirilemez.Sealed classlar içindeki classlar özelleştirilebilir.
+
+NESTED INNER CLASS
+
+Nested classlar outer classın uye propertylerine ya da fonksiyonlarına erişemezler.
+Nested classlar static olarak saklanırlar.
+Bundan dolayı da outer class uzerinden nested classa erişmek istemeniz durumunda Outer.NestedClass şeklinde erişebilirsiniz.
+
+Inner classlar static olarak tutulmazlar. Bundan dolayı erişim yapmak istediğimizde
+Outer.InnerClass() şeklinde outer classın da instanceini oluşturmamız gerekmektedir.
+Bundan dolayı inner class outer classın tüm elemanlarına erişebilir. Private olsa dahi.
+
+Inner classın içerisine yeni bir nested class eklenememektedir.Ancak yine inner class ekleyebilirsiniz.
+Nested classın içerisine ise bir nested ya da inner fark etmeksizin class ekleyebilirsiniz.
