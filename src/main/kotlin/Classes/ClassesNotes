@@ -187,3 +187,36 @@ primary const içinde val ya da var yazmanız classın içinde başka fonksiyond
 erişimi sağlar.
 
 Pair, Triple özelleştirilmiş generic data classlar mevcut
+
+ENUM CLASS
+Tip güvenliğini (type-safety) sağlar.
+Kullanım amacı aynı veri kümelerinin gruplanabilir olmasını sağlar.
+Opsiyonların tamamının neler olduğunu rahatça görebilmemizi sağlar.
+
+abstract, open, inner, sealed olamazlar.
+Yapısı gereği zaten finaldırlar. final keywordu kullanmak redundant uyarısı verir.
+
+ozunde class oldukları için, constructor kullanabilirler ve bu constructor içerisinde veri tutabilirler.
+Java karşılığında bu enum sabitleri static final classlar şeklinde tutulurlar.
+Bu sayede kullanırken bu sabitlerin nesnesini oluşturmak zorunda kalmayız.
+
+Enum classlarının nesnesi oluşturulamaz.
+
+Her enum sabiti final name:String ve final ordinal:Int değişkenlere default olarak sahiptir.
+name ifadesi, enumın kendisinin string halini verir.
+ordinal ifadesi, enumın sabitinin indexini verir ve 0'dan başlar.
+Bu değişkenler final oldukları için, enum sabitleri içerisinde override edilemezler.
+Enum sabitleri bir class olarak tutulur.
+Tüm enum sabitleri arka planda enum classını miras alır.
+Enum classlarda sadece toString override edilir.
+Enumların nesnesı oluşturulamaz.Const. private
+Enum sabitindeki toStringi enum sabiti yerine başka çıktı almak istediğinizde kullanın.
+Enum sabitinin ismini almak istiyorsanız name vardır zaten.
+
+enum classlar herhangi bir başka classı miras alamazlar.
+enum classlar herhangi bir interface'i implement edebilirler.
+enum classlar abstract propertyler ya da abstract func'lar alabilirler.
+Bunları aldıklarında tüm sabitler bu abstract yapıları override etmek zorundadır.
+
+Bir open function da yazılabilir. Open olmasından dolayı override etme zorunluluğu yoktur.
+Ancak open olarak belirtilen func'nun bodysi olmak zorundadır.
