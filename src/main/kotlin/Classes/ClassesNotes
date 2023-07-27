@@ -264,3 +264,39 @@ Bundan dolayı inner class outer classın tüm elemanlarına erişebilir. Privat
 
 Inner classın içerisine yeni bir nested class eklenememektedir.Ancak yine inner class ekleyebilirsiniz.
 Nested classın içerisine ise bir nested ya da inner fark etmeksizin class ekleyebilirsiniz.
+
+INLINE CLASS
+
+@JvmInline annotation ile birlikte kullanılmak zorunda.
+value class formatında yazılır.Const. tek parametre alır.
+class içinde şu an icin sadece bir tane değişken kabul etmektedir.
+value classların dokumantasyonunda inline classların ileride birden fazla değişken
+alabilmesine izin verileceği yazıyor.
+ikinci değişkene atama yaparsan ->Value class cannot have properties with backing fields bu hatayı alırsın.
+val accountNumber2:Long=123424124 ->bu şekilde yapamazsın
+val accountNumber:Long
+        get() {
+            return 1234563124
+        }  -> bu şekilde izin var çünkü backing fields oluşturmuyor arkada
+        fun getAccountNumber2():Long{
+                return 1234563124
+            } bu kullanımile aynı
+inline classlar ile init blocku kullanılabilir.
+inline classların belirtilen constructorları java kodunda private olarak bulunurlar.
+Bundan dolayı zaten istesek de bu constructorlarla nesne oluşturamayız.
+Ama bunu yapabiliyor gibi görünmemizin sebebi, gerçekte o nesnenin hiç yaratılmıyor oluşu sebebiyle.
+Bizin nesne oluştururken gördüğümüz şey aslında const. içindeki değişkenin kendisi
+
+İnline classlar içinde property tanımlanmasına izin verilir. Ancak bu propertynin backing fieldi olamaz.
+
+Inline classlar herhangi bir interfacei implement edebilirler, bir başka classı miras alamazlar.
+
+Inline classlar miras alınamaz. Cunku default olarak finallardır ve değiştirilemezler.
+Open keyworduyle beraber kullanılamaz. Final keywordu vermek de redundant verir.
+Abstract,sealed keyword ile de kullanılamaz.
+wrapper gibi düşün.
+
+TYPE ALIAS
+
+Nested ya da local typeAlias kullanımı desteklenmiyor.
+TypeAliaslar arka planda yeni bir class oluşturmaz. Sadece etiketleme yaparlar.

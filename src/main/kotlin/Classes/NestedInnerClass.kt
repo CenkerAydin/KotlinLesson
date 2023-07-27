@@ -41,6 +41,7 @@ fun main() {
     outer.surName
 
     Outer.NestedClass().printName()
+    //Outer.NestedClass().printName(outer) memory leak oluşturur
     // Outer().NestedClass().printName
 
     Outer2().InnerClass().printName()
