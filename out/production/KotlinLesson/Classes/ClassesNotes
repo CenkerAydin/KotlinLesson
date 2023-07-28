@@ -264,3 +264,68 @@ Bundan dolayı inner class outer classın tüm elemanlarına erişebilir. Privat
 
 Inner classın içerisine yeni bir nested class eklenememektedir.Ancak yine inner class ekleyebilirsiniz.
 Nested classın içerisine ise bir nested ya da inner fark etmeksizin class ekleyebilirsiniz.
+
+INLINE CLASS
+
+@JvmInline annotation ile birlikte kullanılmak zorunda.
+value class formatında yazılır.Const. tek parametre alır.
+class içinde şu an icin sadece bir tane değişken kabul etmektedir.
+value classların dokumantasyonunda inline classların ileride birden fazla değişken
+alabilmesine izin verileceği yazıyor.
+ikinci değişkene atama yaparsan ->Value class cannot have properties with backing fields bu hatayı alırsın.
+val accountNumber2:Long=123424124 ->bu şekilde yapamazsın
+val accountNumber:Long
+        get() {
+            return 1234563124
+        }  -> bu şekilde izin var çünkü backing fields oluşturmuyor arkada
+        fun getAccountNumber2():Long{
+                return 1234563124
+            } bu kullanımile aynı
+inline classlar ile init blocku kullanılabilir.
+inline classların belirtilen constructorları java kodunda private olarak bulunurlar.
+Bundan dolayı zaten istesek de bu constructorlarla nesne oluşturamayız.
+Ama bunu yapabiliyor gibi görünmemizin sebebi, gerçekte o nesnenin hiç yaratılmıyor oluşu sebebiyle.
+Bizin nesne oluştururken gördüğümüz şey aslında const. içindeki değişkenin kendisi
+
+İnline classlar içinde property tanımlanmasına izin verilir. Ancak bu propertynin backing fieldi olamaz.
+
+Inline classlar herhangi bir interfacei implement edebilirler, bir başka classı miras alamazlar.
+
+Inline classlar miras alınamaz. Cunku default olarak finallardır ve değiştirilemezler.
+Open keyworduyle beraber kullanılamaz. Final keywordu vermek de redundant verir.
+Abstract,sealed keyword ile de kullanılamaz.
+wrapper gibi düşün.
+
+TYPE ALIAS
+
+Nested ya da local typeAlias kullanımı desteklenmiyor.
+TypeAliaslar arka planda yeni bir class oluşturmaz. Sadece etiketleme yaparlar.
+
+
+SINGLETON
+
+Bir classın nesnesine kaç kere erişildiğini nasıl sayarız.
+Counter değeri tutarız. Ama ilgili classın nesnesinin t anında sadece 1 tane olmasından emin olmanız lazım.
+Herhangi bir t anında ilgil classın nesnesinde sadece 1 tane olduğunu garanti eden tasarım şeması
+Static keywordu memory temizliği yapan garbage collectora dokunma izni vermiyor.
+Bilinçsiz şekilde kullanırsanız memoryi gereksiz işgal ettirirsin. OutofMemoryException alma ihtimalini arttırır.
+İş görüşmelerinde java'da singleton nasıl yaparsınız beklenir.
+Şart->
+classın 1 tane constructor olduğundan emin ol
+ve o class boş olan default const. olsun ve o const. private yap.
+classın içeride bir tane instance'sını oluştur ve private yap
+bu instancei geri döndürecek olan bir tane fonksiyon yaz.
+fonksiyon içerisinde bu instancein null olup olmadığını kontrol etsin
+nullsa 1 kez erişiyorsun anlamına gelir ve instance nesnesini oluştur.
+eğer null değilse var olan nesneyi döndür.
+fonksiyona dışarıdan erişilmesi için önüne static  keywordu koy.
+
+volatile ve synchronized keywordleri olmayan kısım basic kısım.
+ama ileride işler karışıcak.o yüzden bil.
+synchronized birden fazla thread çalışıyorsa, keywordu yazılı fonksiyona tek tek işlem yaptırır.
+1.thread girdi diğer threadleri içeriye almaz. 1.thread bittikten sonra 2.yi alır.
+Yani birden fazla thread erişimini engeller.
+volatile keywordu ise synchronized keywordunun değişkenler için yapılmasını sağlar
+yani tek bir işlemcinin değişkene erişimini sağlar.
+
+Kotlinde başa object yaparsan singletonu yapar
