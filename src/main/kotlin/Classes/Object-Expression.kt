@@ -20,3 +20,23 @@ val fullName:User=object : Print2, User(23){
         return "$firstName $surName"
     }
 }
+
+fun main() {
+   // fullName.onPrint()
+    fullName.getUserFullName()
+    println("Full name = $fullName")
+
+  /*  object :CountDownTimer(10000,10000){
+        override fun onTick(){
+
+        }
+        override fun onFinish(){
+
+        }
+    }
+
+   */
+
+
+
+}

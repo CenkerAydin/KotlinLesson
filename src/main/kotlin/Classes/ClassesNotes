@@ -342,3 +342,8 @@ Ama arka tarafta o interfacein nesnesi oluşturulur. Önemli performans farkı y
 inline, noinline,crossinline
 eğer higher order func birden fazla kez çağrılıyorsa ve interfacei çağırıyorsan memoryde interface nesnesi oluşturulur.
 ama başına inline koyuyorsan higher order fonksiyonun nesnesi birden fazla kez oluşturulmaz.Performans farkı yaratır
+
+Objeyi expression olarak kullanıyorsanız isimsiz class(anonymous) oluşturuyorsunuz.
+showkotlin kodundan bak. Kullan-at classlar denir.
+2tane superType kullanıyorsanız expression kullanımında tipini söylemen gerek.
+interfacede supertypedır
