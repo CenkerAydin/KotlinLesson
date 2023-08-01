@@ -328,4 +328,32 @@ Yani birden fazla thread erişimini engeller.
 volatile keywordu ise synchronized keywordunun değişkenler için yapılmasını sağlar
 yani tek bir işlemcinin değişkene erişimini sağlar.
 
-Kotlinde başa object yaparsan singletonu yapar
+Kotlinde başa object yaparsan singletonu kendisi yapar.
+
+OBJECT EXPRESSION
+
+Expression kullanımı -> herhangi bir yapıyı değer ataması yaparak kullanma.
+Obje kullanımında da yapılabilir.
+Bir nesne oluşturmadan herhangi bir dosya üzerinden başka bir değişkene erişiyorsan orada static kullanım vardır.
+Dikkat et.
+Expression class içinde de dışında da yazılabilir.
+Normalde interfacein nesnesi oluşturulamaz.
+Ama arka tarafta o interfacein nesnesi oluşturulur. Önemli performans farkı yaratır.
+inline, noinline,crossinline
+eğer higher order func birden fazla kez çağrılıyorsa ve interfacei çağırıyorsan memoryde interface nesnesi oluşturulur.
+ama başına inline koyuyorsan higher order fonksiyonun nesnesi birden fazla kez oluşturulmaz.Performans farkı yaratır
+
+Objeyi expression olarak kullanıyorsanız isimsiz class veya isimsiz interfaceler(anonymous) oluşturuyorsunuz.
+showkotlin kodundan bak. Kullan-at classlar denir.
+Eğer 1 tane supertype kullanıyorsan tipini vermek zorunda değilsin.
+2tane superType kullanıyorsanız expression kullanımında tipini söylemen gerek.
+interfacede supertypedır
+Tipe class dersen classın içindekilerin çağırımını yaparsın, interfacei çağıramazsın.
+Tipe interface dersen interface'in içindekilerin çağırımını yaparsın.Classı çağıramazsın.
+Dışarıya açmak istemediğin bir yapıyı object expression ile kullanabilirsin. Reflection'u engelleyebilirsin.
+Kütüphane yazarken sınırlamaları sağlaması konusunda fayda sağlar.
+Dolaylı yoldan multi inheritance sağlatıyor
+
+COMPANION OBJECT
+
+Kotlinde singleton yaparken thread safe yapamıyorduk direkt. Bunu companion object ile sağlayabilirsin.

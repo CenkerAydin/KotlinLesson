@@ -352,3 +352,16 @@ Tipe class dersen classın içindekilerin çağırımını yaparsın, interfacei
 Tipe interface dersen interface'in içindekilerin çağırımını yaparsın.Classı çağıramazsın.
 Dışarıya açmak istemediğin bir yapıyı object expression ile kullanabilirsin. Reflection'u engelleyebilirsin.
 Kütüphane yazarken sınırlamaları sağlaması konusunda fayda sağlar.
+Dolaylı yoldan multi inheritance sağlatıyor
+
+COMPANION OBJECT
+
+class içine object yazılmaz. Bunun yerine companion object kullanılır.
+classın tamamını singleton yapmak istemiyorsan, bir kısmını istiyorsan companion object kullan.
+Static olarak memoryde yer kaplar. Classın ismi nokta diyerek herhangi bir değişken veya fonksiyona erişir.
+Kotlinde singleton yaparken thread safe yapamıyorduk direkt. Bunu companion object ile sağlayabilirsin.
+DeCompile ettiğimizde companion object içerisinde olan değişkenler static final olarak bulunur.
+classın nesnesini oluşturmadan fonksiyona erişiyoruz bu da static olarak tutulur.
+isim verebilirsin. inherit ve implement edebilir.
+interfaceler state tutmaz. Backing fielde erişemez. Companion object ekleyerek interface içerisinde state tutulabiliyor.
+Ama kullanmayın interface amacının dışına çıkıyorsunuz.
