@@ -365,3 +365,21 @@ classın nesnesini oluşturmadan fonksiyona erişiyoruz bu da static olarak tutu
 isim verebilirsin. inherit ve implement edebilir.
 interfaceler state tutmaz. Backing fielde erişemez. Companion object ekleyerek interface içerisinde state tutulabiliyor.
 Ama kullanmayın interface amacının dışına çıkıyorsunuz.
+
+DELEGATED PROPERTIES
+
+Uygulamanın herhangi bir t anında ihtiyaç duyulmayan değişkenlerin daha sonradan yer kaplasın şeklinde yazılmasına
+Lazy yazılması denir.
+By lazy val değişkenlerde kullanılır.
+Lateinit var ile kullanılır.
+by lazy ve lateinit ekran açılırken ihtiyaç duyulmuyorsa kullan. Ekran açılırken ihtiyaç duyulan değişkenlerde kullanma.
+lazy ve lateinit görüldüğünde direkt o değişkenleri memoryde oluşturma, ne zaman çağrıldığında o zaman oluştur.
+by lazy ile değişken tanımlandığında bu değişkenin initialize işlemi ilk kez bu değişkene eriştiğiniz anda oluşur.
+by lazyde değişkene tip olarak ne verdiysen lazy bloğunun içinde son satırda onu return etmen lazım
+lateinitde initialize kullanabilmek için this::lateinitdeğişkeni.isInitialized.not() yapmak gerekir.
+initte yani const. kullanılan bir değişkeni lateinit veya lazy olması gereksizdir.
+öğrendiğin şeyi ne zaman ve nerede kullanılması gerektiğini bil, her yerde kullanma.
+lazynin içinde LazyThreadSafetyMode.SYNCHRONIZED ->threadler konusunda senkronizasyonlu çalışmayı sağlar
+                LazyThreadSafetyMode.PUBLICATION -> lazy bloğu birden fazla kez çalışabilir ama ilk aldığı değer return edilir
+                LazyThreadSafetyMode.NONE ->multiple thread tarafından eirşilirse, ne olacağı belli olmaz.
+                eğer tek bir thread ile çalışacaksanız none kullanmak daha performanslı olur.
