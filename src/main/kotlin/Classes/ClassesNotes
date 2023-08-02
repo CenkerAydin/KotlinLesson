@@ -383,3 +383,8 @@ lazynin içinde LazyThreadSafetyMode.SYNCHRONIZED ->threadler konusunda senkroni
                 LazyThreadSafetyMode.PUBLICATION -> lazy bloğu birden fazla kez çalışabilir ama ilk aldığı değer return edilir
                 LazyThreadSafetyMode.NONE ->multiple thread tarafından eirşilirse, ne olacağı belli olmaz.
                 eğer tek bir thread ile çalışacaksanız none kullanmak daha performanslı olur.
+
+OBSERVABLE
+
+ilgili değişkenin değeri değiştiğinde size haber veren lambda bloğu sağlar.
+Kısıtlı özellikleri olan yapı. Eski değeri alabilirsin,karşılaştırabilirsin
