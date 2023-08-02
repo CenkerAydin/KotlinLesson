@@ -386,5 +386,23 @@ lazynin içinde LazyThreadSafetyMode.SYNCHRONIZED ->threadler konusunda senkroni
 
 OBSERVABLE
 
+Initial value alıyor.içinde higher order fonk var ve unit dönderiyor.
 ilgili değişkenin değeri değiştiğinde size haber veren lambda bloğu sağlar.
 Kısıtlı özellikleri olan yapı. Eski değeri alabilirsin,karşılaştırabilirsin
+by Delegates.observable -> arka tarafta böyle çalışır
+interface Notify{
+    fun onNotify(oldValue:Int, newValue:Int)
+}
+
+class DenemeObservable(val notify: Notify){
+    var balance :Int=0
+        set(value) {
+            notify.onNotify(field,value)
+            field=value
+        }
+}
+
+VETOABLE
+
+observabledan farkı içindeki higher order fonk boolean döndürüyor.
+son bloktaki boolean değere göre atamanın geçerli veya geçersiz olduğunu sorgulatıyorsun.
