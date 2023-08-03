@@ -365,6 +365,8 @@ classın nesnesini oluşturmadan fonksiyona erişiyoruz bu da static olarak tutu
 isim verebilirsin. inherit ve implement edebilir.
 interfaceler state tutmaz. Backing fielde erişemez. Companion object ekleyerek interface içerisinde state tutulabiliyor.
 Ama kullanmayın interface amacının dışına çıkıyorsunuz.
+Companion Object içerisine @JvmStatic annotation eklediğiniz sınıf içerisinde o değişken veya fonksiyonu classın içerisinde
+static olarak tutar ve classismi.fonksiyon veya değişken ismiyle direkt erişebilirsiniz.
 
 DELEGATED PROPERTIES
 
@@ -386,7 +388,8 @@ lazynin içinde LazyThreadSafetyMode.SYNCHRONIZED ->threadler konusunda senkroni
 
 OBSERVABLE
 
-Initial value alıyor.içinde higher order fonk var ve unit dönderiyor.
+Initial value alıyor.Initial value tipi delegate ettiğin değişkenin tipi neyse onu almalı
+içinde higher order fonk var ve unit dönderiyor.
 ilgili değişkenin değeri değiştiğinde size haber veren lambda bloğu sağlar.
 Kısıtlı özellikleri olan yapı. Eski değeri alabilirsin,karşılaştırabilirsin
 by Delegates.observable -> arka tarafta böyle çalışır
@@ -404,5 +407,18 @@ class DenemeObservable(val notify: Notify){
 
 VETOABLE
 
+Initial value alıyor.Initial value tipi delegate ettiğin değişkenin tipi neyse onu almalı
 observabledan farkı içindeki higher order fonk boolean döndürüyor.
 son bloktaki boolean değere göre atamanın geçerli veya geçersiz olduğunu sorgulatıyorsun.
+
+REFLECTION
+
+Kotlin official olarak reflectiona izin vermiyor, o yüzden javaclassa erişip kullanıyoruz.
+Çok sık kullanılmaması gereken bir konu.
+Kendi yazdığın classda private değişkene erişmek için reflection kullanma.
+Reflection, 3.parti kütüphanelerde private olan değişkene erişmek için kullanılır.
+bir değişkenin public veya private olması sadece java kodunda get set olacak mı olmayacak mı diye yapmak için
+privatesa get set yok, publicse var.
+değişken isimlerini bilmen gerekiyor.
+reflectionda değişken isiminden değil, eleman indexinden git.
+obfuscate ederken sıkıntı çıkmaz bu şekilde.
