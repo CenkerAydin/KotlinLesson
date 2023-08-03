@@ -422,3 +422,19 @@ privatesa get set yok, publicse var.
 değişken isimlerini bilmen gerekiyor.
 reflectionda değişken isiminden değil, eleman indexinden git.
 obfuscate ederken sıkıntı çıkmaz bu şekilde.
+
+GENERICS
+
+Parametre kullandığımız yerlerde generics kullanabilirsiniz.
+Const, fonksiyonlarda, higher orderda, extension, inline, return type olarak generic kullanabilirsiniz.
+En büyük faydası tip olarak ne geleceğini söylemiyoruz ve her şeyi kullanabilyoruz. <T>
+Hiyerarşide kısıtlamaya gitmek istiyorsak <T :Auto> ->T Autonun kökeninden gelen her şey olabilir
+Bu javada <? extends Auto> diye yazabilirsiniz.
+<T> yerine her şey yazabilirsiniz.
+Değişkenin tipiyle değişkenin kendisi aynı olmalı.
+<out T: Auto> değişkenin kendisi ve  alt classlarını da kapsar sorun olmaz.
+<in T :Auto> değişkenin kendisi ve üst claslarını da kapsar sorun olmaz.
+
+inline bir fonksiyonda generics kullancaksan reified keywordu kullanılır.
+Bu durumda kodlar derlenirken hangi tipte olabileceği biliniyor, bunun bilinmesi generic tiplerle ilgili
+kontrol var String tipinde mi integer tipinde mi  reified kontrol ettiriyor.
