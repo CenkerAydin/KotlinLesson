@@ -430,10 +430,11 @@ Const, fonksiyonlarda, higher orderda, extension, inline, return type olarak gen
 En büyük faydası tip olarak ne geleceğini söylemiyoruz ve her şeyi kullanabilyoruz. <T>
 Hiyerarşide kısıtlamaya gitmek istiyorsak <T :Auto> ->T Autonun kökeninden gelen her şey olabilir
 Bu javada <? extends Auto> diye yazabilirsiniz.
-<T> yerine her şey yazabilirsiniz.
-Değişkenin tipiyle değişkenin kendisi aynı olmalı.
+<T>  T yerine her şey yazabilirsiniz.
+Eğer out veya in kullanmıyorsan değişken tipiyle değişkenin kendisi aynı olmalıdır.
 <out T: Auto> değişkenin kendisi ve  alt classlarını da kapsar sorun olmaz.
 <in T :Auto> değişkenin kendisi ve üst claslarını da kapsar sorun olmaz.
+Geri dönüş tipi de olarak verilebilir.
 
 inline bir fonksiyonda generics kullancaksan reified keywordu kullanılır.
 Bu durumda kodlar derlenirken hangi tipte olabileceği biliniyor, bunun bilinmesi generic tiplerle ilgili
