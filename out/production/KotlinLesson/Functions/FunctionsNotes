@@ -148,3 +148,7 @@ Aksi halde bu higher order fonksiyonu tanımlamak mantıksız olur.
 
 Bir higher order functionina parametre verirken Class ismi.() şeklinde tanımlama yapılabilir.
 Bu sayede ilgili class da parametre parantezi içerisine yazılabilir.
+
+SCOPE FUNCTIONS
+
+5 tane scope fonksiyon vardır.

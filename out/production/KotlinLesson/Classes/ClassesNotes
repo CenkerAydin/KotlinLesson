@@ -356,4 +356,86 @@ Dolaylı yoldan multi inheritance sağlatıyor
 
 COMPANION OBJECT
 
+class içine object yazılmaz. Bunun yerine companion object kullanılır.
+classın tamamını singleton yapmak istemiyorsan, bir kısmını istiyorsan companion object kullan.
+Static olarak memoryde yer kaplar. Classın ismi nokta diyerek herhangi bir değişken veya fonksiyona erişir.
 Kotlinde singleton yaparken thread safe yapamıyorduk direkt. Bunu companion object ile sağlayabilirsin.
+DeCompile ettiğimizde companion object içerisinde olan değişkenler static final olarak bulunur.
+classın nesnesini oluşturmadan fonksiyona erişiyoruz bu da static olarak tutulur.
+isim verebilirsin. inherit ve implement edebilir.
+interfaceler state tutmaz. Backing fielde erişemez. Companion object ekleyerek interface içerisinde state tutulabiliyor.
+Ama kullanmayın interface amacının dışına çıkıyorsunuz.
+Companion Object içerisine @JvmStatic annotation eklediğiniz sınıf içerisinde o değişken veya fonksiyonu classın içerisinde
+static olarak tutar ve classismi.fonksiyon veya değişken ismiyle direkt erişebilirsiniz.
+
+DELEGATED PROPERTIES
+
+Uygulamanın herhangi bir t anında ihtiyaç duyulmayan değişkenlerin daha sonradan yer kaplasın şeklinde yazılmasına
+Lazy yazılması denir.
+By lazy val değişkenlerde kullanılır.
+Lateinit var ile kullanılır.
+by lazy ve lateinit ekran açılırken ihtiyaç duyulmuyorsa kullan. Ekran açılırken ihtiyaç duyulan değişkenlerde kullanma.
+lazy ve lateinit görüldüğünde direkt o değişkenleri memoryde oluşturma, ne zaman çağrıldığında o zaman oluştur.
+by lazy ile değişken tanımlandığında bu değişkenin initialize işlemi ilk kez bu değişkene eriştiğiniz anda oluşur.
+by lazyde değişkene tip olarak ne verdiysen lazy bloğunun içinde son satırda onu return etmen lazım
+lateinitde initialize kullanabilmek için this::lateinitdeğişkeni.isInitialized.not() yapmak gerekir.
+initte yani const. kullanılan bir değişkeni lateinit veya lazy olması gereksizdir.
+öğrendiğin şeyi ne zaman ve nerede kullanılması gerektiğini bil, her yerde kullanma.
+lazynin içinde LazyThreadSafetyMode.SYNCHRONIZED ->threadler konusunda senkronizasyonlu çalışmayı sağlar
+                LazyThreadSafetyMode.PUBLICATION -> lazy bloğu birden fazla kez çalışabilir ama ilk aldığı değer return edilir
+                LazyThreadSafetyMode.NONE ->multiple thread tarafından eirşilirse, ne olacağı belli olmaz.
+                eğer tek bir thread ile çalışacaksanız none kullanmak daha performanslı olur.
+
+OBSERVABLE
+
+Initial value alıyor.Initial value tipi delegate ettiğin değişkenin tipi neyse onu almalı
+içinde higher order fonk var ve unit dönderiyor.
+ilgili değişkenin değeri değiştiğinde size haber veren lambda bloğu sağlar.
+Kısıtlı özellikleri olan yapı. Eski değeri alabilirsin,karşılaştırabilirsin
+by Delegates.observable -> arka tarafta böyle çalışır
+interface Notify{
+    fun onNotify(oldValue:Int, newValue:Int)
+}
+
+class DenemeObservable(val notify: Notify){
+    var balance :Int=0
+        set(value) {
+            notify.onNotify(field,value)
+            field=value
+        }
+}
+
+VETOABLE
+
+Initial value alıyor.Initial value tipi delegate ettiğin değişkenin tipi neyse onu almalı
+observabledan farkı içindeki higher order fonk boolean döndürüyor.
+son bloktaki boolean değere göre atamanın geçerli veya geçersiz olduğunu sorgulatıyorsun.
+
+REFLECTION
+
+Kotlin official olarak reflectiona izin vermiyor, o yüzden javaclassa erişip kullanıyoruz.
+Çok sık kullanılmaması gereken bir konu.
+Kendi yazdığın classda private değişkene erişmek için reflection kullanma.
+Reflection, 3.parti kütüphanelerde private olan değişkene erişmek için kullanılır.
+bir değişkenin public veya private olması sadece java kodunda get set olacak mı olmayacak mı diye yapmak için
+privatesa get set yok, publicse var.
+değişken isimlerini bilmen gerekiyor.
+reflectionda değişken isiminden değil, eleman indexinden git.
+obfuscate ederken sıkıntı çıkmaz bu şekilde.
+
+GENERICS
+
+Parametre kullandığımız yerlerde generics kullanabilirsiniz.
+Const, fonksiyonlarda, higher orderda, extension, inline, return type olarak generic kullanabilirsiniz.
+En büyük faydası tip olarak ne geleceğini söylemiyoruz ve her şeyi kullanabilyoruz. <T>
+Hiyerarşide kısıtlamaya gitmek istiyorsak <T :Auto> ->T Autonun kökeninden gelen her şey olabilir
+Bu javada <? extends Auto> diye yazabilirsiniz.
+<T>  T yerine her şey yazabilirsiniz.
+Eğer out veya in kullanmıyorsan değişken tipiyle değişkenin kendisi aynı olmalıdır.
+<out T: Auto> değişkenin kendisi ve  alt classlarını da kapsar sorun olmaz.
+<in T :Auto> değişkenin kendisi ve üst claslarını da kapsar sorun olmaz.
+Geri dönüş tipi de olarak verilebilir.
+
+inline bir fonksiyonda generics kullancaksan reified keywordu kullanılır.
+Bu durumda kodlar derlenirken hangi tipte olabileceği biliniyor, bunun bilinmesi generic tiplerle ilgili
+kontrol var String tipinde mi integer tipinde mi  reified kontrol ettiriyor.
