@@ -2,7 +2,7 @@ package Classes
 
 
 
-class Car(wheelCount:Int, color:String) {
+/*class Car(wheelCount:Int, color:String) {
     private val mWheelCount: Int
     private val mColor = color
 
@@ -18,14 +18,34 @@ class Car(wheelCount:Int, color:String) {
         "2. secondary const. created".printLog()
     }
 
+}
+
+ */
+class Car( val brand: String, val year: Int){
+    init{
+        println("$brand marka araç oluşturuluyor.")
+    }
+
+    constructor(brand :String): this(brand, 2022){
+        println("$brand marka araç (secondary const.) oluşturuluyor.")
+    }
+
+    init{
+        println("$brand marka aracın başlangıç yılı: $year")
+    }
 
 }
 
+
 fun main() {
-    val car0=Car(4,"Black")
+   /* val car0=Car(4,"Black")
     val car1=Car(4,"Blue")
     val car2=Car("Mini Cooper")
     val car3=Car("Mini Cooper","Metal")
+    */
+    val car1=Car("Toyota",2020)
+    val car2=Car("Honda")
+    val car3=Car("Ford",2018)
 }
 
 fun String.printLog(){
